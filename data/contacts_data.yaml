@@ -1,0 +1,9 @@
+test_add_contacts:
+  test_add_contacts_001:
+    name: "xiaohong"
+    phone: "15665568998"
+    text: "此联系人已保存"
+  test_add_contacts_002:
+    name: "xiaoming"
+    phone: "18989999990"
+    text: "此联系人已保存"

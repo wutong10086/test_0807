@@ -1,0 +1,78 @@
+<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1565138353470" stop="1565138433759">
+  <name>cases</name>
+  <labels/>
+  <test-cases>
+    <test-case start="1565138353470" status="passed" stop="1565138398362">
+      <name>test_contacts.TestContacts.test_add_contacts[args0]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="9312-MainThread"/>
+        <label name="host" value="SC-201707122050"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps/>
+    </test-case>
+    <test-case start="1565138403650" status="failed" stop="1565138433759">
+      <name>test_contacts.TestContacts.test_add_contacts[args1]</name>
+      <failure>
+        <message>TimeoutException: Message: 
+</message>
+        <stack-trace>self = &lt;cases.test_contacts.TestContacts object at 0x000000EA30AC49B0&gt;, args = {'name': 'xiaoming', 'phone': '18989999990', 'text': '此联系人已保存'}
+
+    @pytest.mark.parametrize("args", data("contacts_data.yaml", "test_add_contacts"))
+    def test_add_contacts(self, args):
+        name = args["name"]
+        phone = args["phone"]
+        message = args["text"]
+        self.page.address.click_add_btn()
+        self.page.contacts.input_name(name)
+        self.page.contacts.input_phone(phone)
+        self.page.contacts.click_back()
+&gt;       text = self.page.contacts.find_totast(message)
+
+cases\test_contacts.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+base\base_action.py:23: in find_totast
+    element = WebDriverWait(self.driver, timeout, poll).until(lambda x: x.find_element_by_xpath(text))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="097e60ba-7a9e-45c6-a41a-5e32a7bac36c")&gt;
+method = &lt;function BaseAction.find_totast.&lt;locals&gt;.&lt;lambda&gt; at 0x000000EA30AC8730&gt;, message = ''
+
+    def until(self, method, message=''):
+        """Calls the method provided with the driver as an argument until the \
+        return value is not False."""
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, 'screen', None)
+                stacktrace = getattr(exc, 'stacktrace', None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+d:\python36\lib\site-packages\selenium-3.141.0-py3.6.egg\selenium\webdriver\support\wait.py:80: TimeoutException</stack-trace>
+      </failure>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="9312-MainThread"/>
+        <label name="host" value="SC-201707122050"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps/>
+    </test-case>
+  </test-cases>
+</ns0:test-suite>
